@@ -129,11 +129,3 @@ function celebrateAndReveal() {
     document.getElementById("gift-reveal").classList.remove("hidden");
   }, 1200);
 }
-document.getElementById("openLetter").addEventListener("click", function() {
-  document.querySelector(".envelope").classList.add("open");
-  setTimeout(() => {
-    document.getElementById("nextBtn").style.display = "inline-block";
-  }, 1200); // wait for paper animation
-});
-
-
