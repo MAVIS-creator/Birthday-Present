@@ -129,56 +129,11 @@ function celebrateAndReveal() {
     document.getElementById("gift-reveal").classList.remove("hidden");
   }, 1200);
 }
-document.addEventListener('DOMContentLoaded', () => {
-  // ===== Page sections nav (one per page) =====
-  const sections = Array.from(document.querySelectorAll('.section'));
-  let current = 0;
-
-  function showSection(idx) {
-    sections.forEach((sec, i) => {
-      sec.style.display = (i === idx) ? 'block' : 'none';
-    });
-    current = idx;
-  }
-
-  // Initial: show the first section only
-  showSection(0);
-
-  // Next buttons navigate relative to the section they are in
-  document.querySelectorAll('.next-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const parent = btn.closest('.section');
-      const idx = sections.indexOf(parent);
-      if (idx > -1 && idx + 1 < sections.length) showSection(idx + 1);
-    });
-  });
-
-  // ===== Envelope behavior =====
-  const envelope = document.getElementById('envelope');
-  const letterNext = document.getElementById('letter-next');
-  const indicator = document.querySelector('#letter .indicator');
-
-  // Click to open
-  envelope.addEventListener('click', () => {
-    if (!envelope.classList.contains('open')) {
-      envelope.classList.add('open');
-      if (indicator) indicator.style.display = 'none';
-      // Show Next after paper finishes sliding
-      setTimeout(() => { letterNext.style.display = 'inline-block'; }, 1000);
-    }
-  });
-
-  // ===== Game gate (unchanged, but safer) =====
-  // If you gate the "game" section, keep this pattern:
-  document.querySelectorAll('.next-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const parent = btn.closest('.section');
-      if (parent && parent.id === 'game') {
-        if (window.poppedCount < 10) {
-          alert('Pop at least 10 balloons to continue!');
-        }
-      }
-    });
-  });
+document.getElementById("openLetter").addEventListener("click", function() {
+  document.querySelector(".envelope").classList.add("open");
+  setTimeout(() => {
+    document.getElementById("nextBtn").style.display = "inline-block";
+  }, 1200); // wait for paper animation
 });
+
 

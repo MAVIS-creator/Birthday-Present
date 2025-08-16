@@ -169,3 +169,38 @@
         }
     });
 </script>
+<style>
+    .envelope {
+  position: relative;
+  width: 260px;
+  height: 180px;
+  margin: 20px auto;
+  background: #fefefe;
+  border: 2px solid #aaa;
+  border-radius: 6px;
+  overflow: hidden; /* keeps paper inside until revealed */
+}
+
+.paper {
+  position: absolute;
+  top: 100%;   /* start hidden below */
+  left: 0;
+  transition: top 1s ease-in-out;
+}
+
+.envelope.open .paper {
+  top: 0; /* slides up into view */
+}
+.paper {
+  width: 260px;   /* same as envelope */
+  height: 180px;
+  background: white;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+</style>
