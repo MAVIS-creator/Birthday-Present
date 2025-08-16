@@ -1,4 +1,4 @@
-/* Global body styles */
+/* 🌐 Global body styles */
 body {
   font-family: 'Poppins', Arial, sans-serif;
   background: linear-gradient(120deg, #6a11cb 0%, #2575fc 100%);
@@ -11,49 +11,51 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* Header */
+/* 🏷️ Header */
 header {
   padding: 2rem;
-  background: rgba(255,255,255,0.7);
+  background: rgba(255, 255, 255, 0.75);
   border-radius: 16px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  max-width: 95%;
 }
 
 h1 {
-  font-size: 2.5rem;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  margin: 0 0 0.5rem;
 }
 
 .subtitle {
-  font-size: 1.2rem;
+  font-size: clamp(1rem, 2.5vw, 1.2rem);
   color: #444;
+  margin: 0;
 }
 
-/* Section – now centered with more space */
+/* 📦 Section cards */
 section {
   margin: 2rem auto;
   padding: 2rem;
   max-width: 900px;
-  background: rgba(255,255,255,0.95);
-  border-radius: 18px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
   text-align: center;
-  transition: box-shadow 0.2s, transform 0.2s;
-  z-index: 2;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
 }
 
 section:hover {
   box-shadow: 0 12px 32px rgba(0,0,0,0.18);
-  transform: scale(1.02);
+  transform: translateY(-4px);
 }
 
-/* Memory cards – responsive grid */
+/* 🃏 Memory cards – responsive grid */
 .memory-cards {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1.5rem;
-  justify-items: center;
   margin-bottom: 1.5rem;
 }
 
@@ -66,15 +68,16 @@ section:hover {
   font-weight: 600;
   font-size: 1.1rem;
   text-align: center;
-  transition: transform 0.2s, box-shadow 0.2s;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  will-change: transform;
 }
 
 .card:hover {
-  transform: scale(1.04);
-  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+  transform: scale(1.05);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.2);
 }
 
-/* Balloon area */
+/* 🎈 Balloon area */
 #balloon-area {
   position: relative;
   height: 350px;
@@ -89,7 +92,7 @@ section:hover {
   justify-content: center;
 }
 
-/* Balloon */
+/* 🎈 Balloon */
 .balloon {
   position: absolute;
   bottom: -50px;
@@ -100,113 +103,72 @@ section:hover {
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0,0,0,0.18);
   border: 2px solid #fff;
-  transition: transform 0.1s;
-  z-index: 2;
+  transition: transform 0.15s ease;
+}
+
+.balloon:active {
+  transform: scale(1.15);
 }
 
 .hidden {
   display: none;
-  transform: scale(1.1);
-  filter: brightness(1.2);
 }
 
-/* Start game button */
-#start-game {
+/* 🎮 Start game button */
+#start-game,
+.next-btn {
   display: inline-block;
-  margin-top: 1rem;
-  padding: 0.8rem 2rem;
-  font-size: 1.2rem;
-  font-weight: bold;
+  margin-top: 1.2rem;
+  padding: 0.9rem 2rem;
+  font-size: 1.1rem;
+  font-weight: 700;
   background: linear-gradient(90deg, #2575fc 0%, #6a11cb 100%);
   color: #fff;
   border: none;
   border-radius: 12px;
   cursor: pointer;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-#start-game:hover {
-  background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
-  transform: scale(1.08);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
-}
-
-/* Next button */
-.next-btn {
-  display: inline-block;
-  margin-top: 1.5rem;
-  padding: 0.8rem 2rem;
-  font-size: 1.1rem;
-  background: linear-gradient(90deg, #2575fc 0%, #6a11cb 100%);
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.13);
-  cursor: pointer;
-  font-weight: 600;
-  transition: background 0.2s, transform 0.2s;
-}
-
+#start-game:hover,
 .next-btn:hover {
   background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
-  transform: scale(1.05);
+  transform: scale(1.08);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
 }
 
-/* Buttons */
+/* 🔘 Buttons */
 .buttons {
   margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
 }
 
 .btn {
-  padding: 0.7rem 1.2rem;
-  border-radius: 8px;
+  padding: 0.7rem 1.4rem;
+  border-radius: 10px;
   text-decoration: none;
-  margin: 0 0.5rem;
-  color: white;
-}
-
-.accept { background: green; }
-.decline { background: red; }
-
-/* Intro overlay */
-#intro-overlay {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0, 0, 0, 0.85);
+  font-weight: 600;
   color: #fff;
-  display: flex;
-  flex-direction: column;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
-  z-index: 9999;
-  animation: fadeOut 1s ease forwards;
-  animation-delay: 5s;
+  min-width: 120px;
 }
 
-#intro-overlay h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+.accept { background: #00c9a7; }
+.decline { background: #ff4b5c; }
+
+.btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
 }
 
-/* Animations */
-@keyframes fadeOut {
-  to { opacity: 0; visibility: hidden; }
-}
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(40px) scale(0.95);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-/* Gift Reveal Styling */
+/* 🎁 Gift Reveal */
 .gift-reveal {
   background: rgba(255, 255, 255, 0.1);
   border-radius: 20px;
@@ -214,19 +176,19 @@ section:hover {
   max-width: 600px;
   margin: 2rem auto;
   text-align: center;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .gift-reveal:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  transform: translateY(-6px);
+  box-shadow: 0 14px 44px rgba(0,0,0,0.35);
 }
 
 .gift-reveal h2 {
-  font-size: 2rem;
+  font-size: clamp(1.6rem, 4vw, 2.2rem);
   font-weight: 700;
   margin-bottom: 1rem;
   color: #fff;
@@ -239,45 +201,90 @@ section:hover {
 
 .gift-reveal p {
   font-size: 1.1rem;
+  line-height: 1.5;
   color: #f0f0f0;
   margin-bottom: 1.5rem;
 }
 
 .gift-reveal p i {
   color: #00c9a7;
-  margin-left: 0.3rem;
 }
 
-/* Buttons */
-.gift-reveal .buttons {
+/* 🟢 Intro overlay */
+#intro-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  color: #fff;
   display: flex;
-  gap: 1rem;
-  justify-content: center;
-}
-
-.gift-reveal .btn {
-  padding: 0.8rem 1.5rem;
-  border-radius: 12px;
-  font-weight: 600;
-  text-decoration: none;
-  display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.5rem;
-  transition: all 0.3s ease;
-  font-size: 1rem;
+  justify-content: center;
+  text-align: center;
+  z-index: 9999;
+  animation: fadeOut 1s ease forwards;
+  animation-delay: 5s;
+  padding: 2rem;
 }
 
-.gift-reveal .btn.accept {
-  background: #00c9a7;
-  color: white;
+#intro-overlay h1 {
+  font-size: clamp(2rem, 6vw, 2.8rem);
+  margin-bottom: 1rem;
 }
 
-.gift-reveal .btn.decline {
-  background: #ff4b5c;
-  color: white;
+/* 🎬 Animations */
+@keyframes fadeOut {
+  to { opacity: 0; visibility: hidden; }
 }
 
-.gift-reveal .btn:hover {
-  opacity: 0.9;
-  transform: scale(1.05);
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 📱 Responsive tweaks */
+@media (max-width: 768px) {
+  section {
+    padding: 1.5rem;
+  }
+
+  .memory-cards {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1rem;
+  }
+
+  #balloon-area {
+    height: 250px;
+  }
+
+  .gift-reveal {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 1.2rem;
+  }
+
+  .btn {
+    min-width: unset;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .buttons {
+    flex-direction: column;
+  }
+
+  section {
+    margin: 1rem;
+    padding: 1.2rem;
+  }
 }
