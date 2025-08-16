@@ -29,6 +29,7 @@ body {
   justify-content: center;
   align-items: center;
 }
+}
 
 header {
   padding: 2rem;
@@ -48,16 +49,18 @@ h1 {
 
 section {
   margin: 2rem auto;
-  padding: 2rem;
-  max-width: 900px;
-  background: rgba(255,255,255,0.9);
-  border-radius: 18px;
+  padding: 2.5rem 2.5rem 2.5rem 2.5rem;
+  max-width: 500px;
+  background: rgba(255,255,255,0.95);
+  border-radius: 22px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-  position: relative;
+  position: absolute;
+  top: 50%;
   left: 50%;
-  transform: translate(-50%, 0) scale(0.95);
+  transform: translate(-50%, -50%) scale(0.97);
   animation: fadeInUp 0.8s cubic-bezier(.68,-0.55,.27,1.55);
   transition: box-shadow 0.2s, transform 0.2s;
+  z-index: 2;
 }
   box-shadow: 0 12px 32px rgba(0,0,0,0.18);
   transform: translate(-50%, 0) scale(1.03);
@@ -66,29 +69,55 @@ section {
 
 .memory-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-  gap: 1.2rem;
+  grid-template-columns: 1fr;
+  gap: 1.1rem;
+  margin-bottom: 1.5rem;
 }
 
 .card {
   background: linear-gradient(90deg, #fda085 0%, #f6d365 100%);
   color: #fff;
-  padding: 1.2rem;
+  padding: 1.1rem 1.5rem;
   border-radius: 12px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.13);
   font-weight: 500;
   font-size: 1.1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+  transform: scale(1.04);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.18);
+}
 }
 
 #balloon-area {
   position: relative;
-  height: 450px;
+  height: 350px;
   background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
   border-radius: 18px;
-  margin: 1.5rem 0;
+  margin: 1.2rem 0 1.2rem 0;
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(0,0,0,0.12);
   border: 2px solid #fda085;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+  margin-bottom: 1.2rem;
+  padding: 0.7rem 1.5rem;
+  font-size: 1.1rem;
+  background: linear-gradient(90deg, #fda085 0%, #f6d365 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s, transform 0.2s;
+}
+#start-game:hover {
+  background: linear-gradient(90deg, #f6d365 0%, #fda085 100%);
+  transform: scale(1.05);
 }
 
 .balloon {
