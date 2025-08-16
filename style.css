@@ -1,14 +1,17 @@
 body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+  font-family: 'Poppins', Arial, sans-serif;
+  background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
   text-align: center;
-  color: #333;
+  color: #222;
   margin: 0;
   padding: 0;
 }
 
 header {
   padding: 2rem;
+  background: rgba(255,255,255,0.7);
+  border-radius: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
 }
 
 h1 {
@@ -22,47 +25,86 @@ h1 {
 
 section {
   margin: 2rem auto;
-  padding: 1.5rem;
-  max-width: 800px;
-  background: rgba(255,255,255,0.8);
-  border-radius: 12px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 2rem;
+  max-width: 900px;
+  background: rgba(255,255,255,0.9);
+  border-radius: 18px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.12);
 }
 
 .memory-cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 1.2rem;
 }
 
 .card {
-  background: #fff;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  background: linear-gradient(90deg, #fda085 0%, #f6d365 100%);
+  color: #fff;
+  padding: 1.2rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+  font-weight: 500;
+  font-size: 1.1rem;
 }
 
 #balloon-area {
   position: relative;
-  height: 300px;
-  background: #fceabb;
-  border-radius: 12px;
-  margin: 1rem 0;
+  height: 450px;
+  background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  border-radius: 18px;
+  margin: 1.5rem 0;
   overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  border: 2px solid #fda085;
 }
 
 .balloon {
   position: absolute;
   bottom: -50px;
-  width: 40px;
-  height: 60px;
+  width: 50px;
+  height: 70px;
   background: red;
-  border-radius: 20px 20px 40px 40px;
+  border-radius: 25px 25px 45px 45px;
   cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+  border: 2px solid #fff;
+  transition: transform 0.1s;
+  z-index: 2;
 }
 
 .hidden {
   display: none;
+  transform: scale(1.1);
+  filter: brightness(1.2);
+}
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+  background: linear-gradient(90deg, #fda085 0%, #f6d365 100%);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.13);
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s, transform 0.2s;
+}
+ .next-btn:hover {
+  background: linear-gradient(90deg, #f6d365 0%, #fda085 100%);
+  transform: scale(1.05);
+}
+  margin-bottom: 1rem;
+}
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #fda085;
+  margin-bottom: 1rem;
+}
+  font-size: 1.1rem;
+  color: #222;
+  margin-bottom: 1rem;
 }
 
 .buttons {
