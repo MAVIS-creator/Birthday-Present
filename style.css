@@ -206,3 +206,78 @@ section:hover {
     transform: translateY(0) scale(1);
   }
 }
+/* Gift Reveal Styling */
+.gift-reveal {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  max-width: 600px;
+  margin: 2rem auto;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gift-reveal:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.gift-reveal h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: #fff;
+}
+
+.gift-reveal h2 i {
+  color: #ff4b5c;
+  margin-right: 0.5rem;
+}
+
+.gift-reveal p {
+  font-size: 1.1rem;
+  color: #f0f0f0;
+  margin-bottom: 1.5rem;
+}
+
+.gift-reveal p i {
+  color: #00c9a7;
+  margin-left: 0.3rem;
+}
+
+/* Buttons */
+.gift-reveal .buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.gift-reveal .btn {
+  padding: 0.8rem 1.5rem;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.3s ease;
+  font-size: 1rem;
+}
+
+.gift-reveal .btn.accept {
+  background: #00c9a7;
+  color: white;
+}
+
+.gift-reveal .btn.decline {
+  background: #ff4b5c;
+  color: white;
+}
+
+.gift-reveal .btn:hover {
+  opacity: 0.9;
+  transform: scale(1.05);
+}
