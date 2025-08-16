@@ -30,11 +30,14 @@
    <section id="letter" class="section" style="display:none; text-align:center; background:none; box-shadow:none; padding:0;">
   <h2 style="margin-bottom:20px;">A Letter From Me 📝</h2>
 
+<section id="letter" class="section letter-page" style="display:none; text-align:center;">
+  <h2 style="margin-bottom:20px;">A Letter From Me 📝</h2>
+
   <div class="envelope-wrapper">
-    <div class="envelope">
+    <div class="envelope" id="envelope">
       <div class="flap"></div>
       <div class="paper">
-         <p>
+        <p>
                     Dear Akintunde Olumide Opeyemi,
                     <br><br>
                     Today, as I sit down to write this, my heart is full of gratitude and happiness because it’s not
@@ -83,11 +86,12 @@
                 </p>
       </div>
     </div>
-    <div class="indicator">📩 Click to open</div>
+    <div class="indicator">📩 Click the envelope to open</div>
   </div>
 
-  <button class="next-btn"">Next</button>
+  <button class="next-btn" id="letter-next" style="display:none;">Next</button>
 </section>
+
 
 
     <!-- Memory Wall -->
