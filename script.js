@@ -1,5 +1,6 @@
 document.getElementById("start-game").addEventListener("click", startGame);
 
+
 let gameStarted = false;
 let poppedCount = 0;
 let timer = 20;
@@ -7,6 +8,7 @@ let trial = 1;
 let timerInterval = null;
 let balloonInterval = null;
 let maxTrials = 3;
+let balloonsToPop = 10;
 
 document.getElementById("start-game").addEventListener("click", startGame);
 
@@ -22,9 +24,12 @@ function startGame() {
   const balloonArea = document.getElementById("balloon-area");
   balloonArea.innerHTML = "";
 
-  // Balloons appear continuously
+  let balloonsCreated = 0;
   balloonInterval = setInterval(() => {
-    createBalloon(balloonArea);
+    if (balloonsCreated < balloonsToPop) {
+      createBalloon(balloonArea);
+      balloonsCreated++;
+    }
   }, 700);
 
   timerInterval = setInterval(() => {
@@ -43,9 +48,17 @@ function endGame() {
   // Remove all balloons
   const balloonArea = document.getElementById("balloon-area");
   balloonArea.innerHTML = "";
-  if (poppedCount >= 5) {
+  if (poppedCount >= balloonsToPop) {
     document.getElementById("popped-count").textContent += " - Success!";
-    if (window.showGameNextBtn) window.showGameNextBtn();
+    // Automatically go to gift reveal section
+    setTimeout(() => {
+      // Find the gift reveal section and show it
+      const sections = Array.from(document.querySelectorAll('.section'));
+      sections.forEach((sec, i) => {
+        sec.style.display = (sec.id === 'gift-reveal') ? '' : 'none';
+      });
+      document.getElementById('gift-reveal').classList.remove('hidden');
+    }, 1200);
   } else {
     document.getElementById("popped-count").textContent += " - Try Again!";
     trial++;
@@ -73,6 +86,9 @@ function createBalloon(area) {
     balloon.remove();
     poppedCount++;
     document.getElementById("popped-count").textContent = `Popped: ${poppedCount}`;
+    if (poppedCount === balloonsToPop) {
+      endGame();
+    }
   });
 
   area.appendChild(balloon);
