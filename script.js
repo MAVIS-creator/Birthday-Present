@@ -130,21 +130,34 @@ function celebrateAndReveal() {
   }, 1200);
 }
 document.addEventListener("DOMContentLoaded", () => {
-  const sections = document.querySelectorAll(".section");
-  const letterSection = document.getElementById("letter");
+  const sections = Array.from(document.querySelectorAll(".section"));
+  let current = 0;
+
+  function showSection(idx) {
+    sections.forEach((sec, i) => {
+      sec.style.display = (i === idx) ? 'block' : 'none';
+    });
+  }
+
+  showSection(current);
+
+  document.querySelectorAll(".next-btn").forEach((btn, i) => {
+    btn.addEventListener("click", () => {
+      showSection(i + 1);
+    });
+  });
+
+  // Envelope click-to-open
   const envelope = document.querySelector(".envelope");
+  const nextBtn = document.querySelector("#letter .next-btn");
+  const indicator = document.querySelector(".indicator");
 
-  setTimeout(() => {
-    // hide all other sections
-    sections.forEach(sec => sec.style.display = "none");
-
-    // show only letter
-    letterSection.style.display = "block";
-
-    // trigger envelope opening
+  envelope.addEventListener("click", () => {
+    envelope.classList.add("open");
+    indicator.style.display = "none";
     setTimeout(() => {
-      envelope.classList.add("open");
-    }, 1000);
-  }, 1500);
+      nextBtn.style.display = "inline-block";
+    }, 1200); // show next button after letter is fully revealed
+  });
 });
 
