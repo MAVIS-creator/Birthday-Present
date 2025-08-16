@@ -28,6 +28,9 @@ function createBalloon(area) {
     balloon.remove();
     poppedCount++;
     document.getElementById("popped-count").textContent = `Popped: ${poppedCount} / 10`;
+    if (poppedCount === 5) {
+      if (window.showGameNextBtn) window.showGameNextBtn();
+    }
     if (poppedCount >= 10) {
       celebrateAndReveal();
     }

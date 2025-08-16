@@ -16,13 +16,22 @@
     </div>
 
     <!-- Greeting Section -->
-    <header>
+    <!-- Celebration Intro -->
+    <div id="intro-overlay" class="section">
+        <h1>🎉 Happy Birthday, Olumide! 🎂</h1>
+        <p>Get ready for something special...</p>
+        <button class="next-btn">Next</button>
+    </div>
+
+    <!-- Greeting Section -->
+    <header class="section" style="display:none;">
         <h1>🎉 Happy Birthday, Bro! 🎉</h1>
         <p class="subtitle">Today’s all about you 🎂💚</p>
+        <button class="next-btn">Next</button>
     </header>
 
     <!-- Letter Section -->
-    <section id="letter">
+    <section id="letter" class="section" style="display:none;">
         <h2>A Letter From Me 📝</h2>
         <p>
             One of life's greatest blessings is having you as a brother, Akintunde Olumide Opeyemi. You are my best
@@ -31,10 +40,11 @@
             happiness, love, and everything that brings you delight. Today and every day, you deserve the finest. ❤️
             Happy birthday, my friend!
         </p>
+        <button class="next-btn">Next</button>
     </section>
 
     <!-- Memory Wall -->
-    <section id="memories">
+    <section id="memories" class="section" style="display:none;">
         <h2>Some of Our Best Moments ✨</h2>
         <div class="memory-cards">
             <div class="card">🎮 Late-night gaming marathons</div>
@@ -44,20 +54,21 @@
             <div class="card">⚽ Playing ball together in Ikeja</div>
             <div class="card">⚔️ Fighting over the best clubs</div>
             <div class="card">😂 Inside jokes only we understand</div>
-            <div class="card">🚀 Dreaming big together</div>
         </div>
+        <button class="next-btn">Next</button>
     </section>
 
     <!-- Game Section -->
-    <section id="game">
-        <h2>Pop 10 Balloons to Unlock Your Gift 🎈</h2>
+    <section id="game" class="section" style="display:none;">
+        <h2>Pop 5 Balloons to Unlock Your Gift 🎈</h2>
         <button id="start-game">Start Game</button>
         <div id="balloon-area"></div>
         <p id="popped-count"></p>
+        <button class="next-btn" style="display:none;">Next</button>
     </section>
 
     <!-- Gift Reveal (hidden at first) -->
-    <section id="gift-reveal" class="hidden">
+    <section id="gift-reveal" class="section hidden" style="display:none;">
         <h2>🎁 Your Birthday Gift 🎁</h2>
         <p>
             Bro, instead of a normal gift, I want to give you something bigger:
@@ -72,6 +83,35 @@
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
     <script src="/assets/confetti.js"></script>
-</body>
-
-</html>
+    <script>
+    // Section navigation logic
+    document.addEventListener('DOMContentLoaded', function() {
+        const sections = Array.from(document.querySelectorAll('.section'));
+        let current = 0;
+        function showSection(idx) {
+            sections.forEach((sec, i) => {
+                sec.style.display = (i === idx) ? '' : 'none';
+            });
+        }
+        showSection(current);
+        document.querySelectorAll('.next-btn').forEach((btn, i) => {
+            btn.addEventListener('click', function() {
+                if (sections[i].id === 'game') {
+                    // Only allow next if 5 balloons popped
+                    if (window.poppedCount < 5) {
+                        alert('Pop at least 5 balloons to continue!');
+                        return;
+                    }
+                    // Show next button after popping 5 balloons
+                }
+                showSection(i + 1);
+            });
+        });
+        // Show game next button after 5 balloons
+        window.showGameNextBtn = function() {
+            const gameSection = document.getElementById('game');
+            const nextBtn = gameSection.querySelector('.next-btn');
+            nextBtn.style.display = '';
+        }
+    });
+    </script>
