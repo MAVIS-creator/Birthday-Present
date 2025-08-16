@@ -1,6 +1,3 @@
-document.getElementById("start-game").addEventListener("click", startGame);
-
-
 let gameStarted = false;
 let poppedCount = 0;
 let timer = 20;
@@ -17,6 +14,7 @@ function startGame() {
   gameStarted = true;
   poppedCount = 0;
   timer = 20;
+
   document.getElementById("popped-count").textContent = "Popped: 0";
   document.getElementById("timer").textContent = timer;
   document.getElementById("trial").textContent = trial;
@@ -24,12 +22,14 @@ function startGame() {
   const balloonArea = document.getElementById("balloon-area");
   balloonArea.innerHTML = "";
 
+  // Spawn balloons on interval
   balloonInterval = setInterval(() => {
     if (poppedCount < balloonsToPop) {
       createBalloon(balloonArea);
     }
   }, 700);
 
+  // Countdown timer
   timerInterval = setInterval(() => {
     timer--;
     document.getElementById("timer").textContent = timer;
@@ -43,24 +43,19 @@ function endGame() {
   clearInterval(timerInterval);
   clearInterval(balloonInterval);
   gameStarted = false;
-  // Remove all balloons
+
   const balloonArea = document.getElementById("balloon-area");
   balloonArea.innerHTML = "";
+
   if (poppedCount >= balloonsToPop) {
     document.getElementById("popped-count").textContent += " - Success!";
-    // Automatically go to gift reveal section
-    setTimeout(() => {
-      // Find the gift reveal section and show it
-      const sections = Array.from(document.querySelectorAll('.section'));
-      sections.forEach((sec, i) => {
-        sec.style.display = (sec.id === 'gift-reveal') ? '' : 'none';
-      });
-      document.getElementById('gift-reveal').classList.remove('hidden');
-    }, 1200);
+    // 🎉 Trigger celebration + gift reveal
+    celebrateAndReveal();
   } else {
     document.getElementById("popped-count").textContent += " - Try Again!";
     trial++;
     if (trial <= maxTrials) {
+      // Retry automatically after short delay
       setTimeout(() => {
         document.getElementById("trial").textContent = trial;
         document.getElementById("timer").textContent = 20;
@@ -103,8 +98,10 @@ function createBalloon(area) {
     }
     pos += speed;
     balloon.style.bottom = pos + "px";
+
     let currentLeft = parseInt(balloon.style.left);
     balloon.style.left = currentLeft + horizontalShift + "px";
+
     if (currentLeft <= 0 || currentLeft >= area.offsetWidth - 50) {
       horizontalShift *= -1;
     }
@@ -116,19 +113,19 @@ function createBalloon(area) {
 }
 
 function randomColor() {
-  const colors = ["red", "blue", "green", "purple", "orange"];
+  const colors = ["#ff4d6d", "#fda085", "#f6d365", "#6a11cb", "#2575fc"];
   return colors[Math.floor(Math.random() * colors.length)];
 }
 
 // 🎉 Celebration before reveal
 function celebrateAndReveal() {
-  // Confetti effect
-  confettiBurst();
+  confettiBurst?.(); // safe call if you defined confettiBurst()
 
-  // Show gift reveal after short delay
   setTimeout(() => {
+    const sections = Array.from(document.querySelectorAll('.section'));
+    sections.forEach(sec => {
+      sec.style.display = (sec.id === 'gift-reveal') ? '' : 'none';
+    });
     document.getElementById("gift-reveal").classList.remove("hidden");
-  }, 1500);
+  }, 1200);
 }
-
-
