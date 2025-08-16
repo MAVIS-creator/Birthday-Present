@@ -314,7 +314,7 @@ section:hover {
 
 .envelope .paper {
   position: absolute;
-  bottom: -100%;
+  bottom: -100%; /* starts completely hidden */
   left: 50%;
   transform: translateX(-50%);
   width: 85%;
@@ -328,7 +328,9 @@ section:hover {
   text-align: left;
   font-family: "Georgia", serif;
   line-height: 1.5;
+  z-index: 1; /* sits under flap */
 }
+
 
 /* Animation when "open" */
 .envelope.open .flap {
