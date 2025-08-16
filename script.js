@@ -130,7 +130,7 @@ function celebrateAndReveal() {
   }, 1200);
 }
 // Typing effect for the letter
-const letterText = `    Dear Akintunde Olumide Opeyemi,
+const letterText = ` Dear Akintunde Olumide Opeyemi,
                 <br><br>
                 My heart is bursting with joy and thankfulness as I sit down to write this today because it's a
                 celebration
