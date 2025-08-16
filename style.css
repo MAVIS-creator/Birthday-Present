@@ -341,3 +341,8 @@ section:hover {
 .envelope.open .paper {
   bottom: 5%;
 }
+#letter {
+  background: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
