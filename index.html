@@ -52,60 +52,66 @@
 
     <!-- Game Section -->
     <section id="game" class="section" style="display:none;">
-    <h2>Pop 10 Balloons to Unlock Your Gift 🎈</h2>
-    <div class="timer">Time Left: <span id="timer">20</span>s</div>
-    <div class="trial">Trial: <span id="trial">1</span> / 3</div>
-    <button id="start-game">Start Game</button>
-    <div id="balloon-area"></div>
-    <p id="popped-count"></p>
-    <button class="next-btn" style="display:none;">Next</button>
+        <h2>Pop 10 Balloons to Unlock Your Gift 🎈</h2>
+        <div class="timer">Time Left: <span id="timer">20</span>s</div>
+        <div class="trial">Trial: <span id="trial">1</span> / 3</div>
+        <button id="start-game">Start Game</button>
+        <div id="balloon-area"></div>
+        <p id="popped-count"></p>
+        <button class="next-btn" style="display:none;">Next</button>
     </section>
 
     <!-- Gift Reveal (hidden at first) -->
-    <section id="gift-reveal" class="section hidden" style="display:none;">
-        <h2>🎁 Your Birthday Gift 🎁</h2>
+    <!-- Gift Reveal Section -->
+    <section id="gift-reveal" class="section hidden gift-reveal">
+        <h2><i class="fas fa-gift"></i> Your Birthday Gift</h2>
         <p>
             Bro, instead of a normal gift, I want to give you something bigger:
-            the chance to be <strong>Co-Founder of my new site</strong> 🚀.
+            the chance to be <strong>Co-Founder of my new site</strong> <i class="fas fa-rocket"></i>
         </p>
         <div class="buttons">
-            <a href="accept.html" class="btn accept">✅ Accept</a>
-            <a href="decline.html" class="btn decline">❌ Decline</a>
+            <a href="accept.html" class="btn accept">
+                <i class="fas fa-check-circle"></i> Accept
+            </a>
+            <a href="decline.html" class="btn decline">
+                <i class="fas fa-times-circle"></i> Decline
+            </a>
         </div>
     </section>
+
 
     <script src="script.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
     <script src="/assets/confetti.js"></script>
     <script>
-    // Section navigation logic
-    document.addEventListener('DOMContentLoaded', function() {
-        const sections = Array.from(document.querySelectorAll('.section'));
-        let current = 0;
-        function showSection(idx) {
-            sections.forEach((sec, i) => {
-                sec.style.display = (i === idx) ? '' : 'none';
-            });
-        }
-        showSection(current);
-        document.querySelectorAll('.next-btn').forEach((btn, i) => {
-            btn.addEventListener('click', function() {
-                if (sections[i].id === 'game') {
-                    // Only allow next if 5 balloons popped
-                    if (window.poppedCount < 5) {
-                        alert('Pop at least 5 balloons to continue!');
-                        return;
+        // Section navigation logic
+        document.addEventListener('DOMContentLoaded', function () {
+            const sections = Array.from(document.querySelectorAll('.section'));
+            let current = 0;
+            function showSection(idx) {
+                sections.forEach((sec, i) => {
+                    sec.style.display = (i === idx) ? '' : 'none';
+                });
+            }
+            showSection(current);
+            document.querySelectorAll('.next-btn').forEach((btn, i) => {
+                btn.addEventListener('click', function () {
+                    if (sections[i].id === 'game') {
+                        // Only allow next if 5 balloons popped
+                        if (window.poppedCount < 5) {
+                            alert('Pop at least 5 balloons to continue!');
+                            return;
+                        }
+                        // Show next button after popping 5 balloons
                     }
-                    // Show next button after popping 5 balloons
-                }
-                showSection(i + 1);
+                    showSection(i + 1);
+                });
             });
+            // Show game next button after 5 balloons
+            window.showGameNextBtn = function () {
+                const gameSection = document.getElementById('game');
+                const nextBtn = gameSection.querySelector('.next-btn');
+                nextBtn.style.display = '';
+            }
         });
-        // Show game next button after 5 balloons
-        window.showGameNextBtn = function() {
-            const gameSection = document.getElementById('game');
-            const nextBtn = gameSection.querySelector('.next-btn');
-            nextBtn.style.display = '';
-        }
-    });
     </script>
