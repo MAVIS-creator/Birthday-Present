@@ -350,6 +350,17 @@ section:hover {
   text-align: left;
   line-height: 1.55;
 }
+.paper {
+  width: 260px;   /* same as envelope */
+  height: 180px;
+  background: white;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+  border-radius: 6px;
+  word-wrap: break-word;
+  overflow: hidden;
+}
 
 /* Open state */
 .envelope.open .flap { transform: rotateX(180deg); }
