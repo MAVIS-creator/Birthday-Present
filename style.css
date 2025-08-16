@@ -1,24 +1,7 @@
-.next-btn {
-  display: inline-block;
-  margin-top: 1.5rem;
-  padding: 0.8rem 2rem;
-  font-size: 1.1rem;
-  background: linear-gradient(90deg, #fda085 0%, #f6d365 100%);
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.13);
-  cursor: pointer;
-  font-weight: 600;
-  transition: background 0.2s, transform 0.2s;
-}
-.next-btn:hover {
-  background: linear-gradient(90deg, #f6d365 0%, #fda085 100%);
-  transform: scale(1.05);
-}
+/* Global body styles */
 body {
   font-family: 'Poppins', Arial, sans-serif;
-  background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  background: linear-gradient(120deg, #6a11cb 0%, #2575fc 100%);
   text-align: center;
   color: #222;
   margin: 0;
@@ -29,8 +12,8 @@ body {
   justify-content: center;
   align-items: center;
 }
-}
 
+/* Header */
 header {
   padding: 2rem;
   background: rgba(255,255,255,0.7);
@@ -47,85 +30,72 @@ h1 {
   color: #444;
 }
 
+/* Section – now centered with more space */
 section {
   margin: 2rem auto;
-  padding: 2.5rem 2.5rem 2.5rem 2.5rem;
-  max-width: 500px;
+  padding: 2rem;
+  max-width: 900px;
   background: rgba(255,255,255,0.95);
-  border-radius: 22px;
+  border-radius: 18px;
   box-shadow: 0 6px 16px rgba(0,0,0,0.12);
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) scale(0.97);
-  animation: fadeInUp 0.8s cubic-bezier(.68,-0.55,.27,1.55);
+  text-align: center;
   transition: box-shadow 0.2s, transform 0.2s;
   z-index: 2;
 }
+
+section:hover {
   box-shadow: 0 12px 32px rgba(0,0,0,0.18);
-  transform: translate(-50%, 0) scale(1.03);
-}
+  transform: scale(1.02);
 }
 
+/* Memory cards – responsive grid */
 .memory-cards {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.1rem;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  justify-items: center;
   margin-bottom: 1.5rem;
 }
 
 .card {
-  background: linear-gradient(90deg, #fda085 0%, #f6d365 100%);
+  background: linear-gradient(90deg, #2575fc 0%, #6a11cb 100%);
   color: #fff;
-  padding: 1.1rem 1.5rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.13);
-  font-weight: 500;
+  padding: 1.5rem;
+  border-radius: 14px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+  font-weight: 600;
   font-size: 1.1rem;
+  text-align: center;
   transition: transform 0.2s, box-shadow 0.2s;
 }
+
 .card:hover {
   transform: scale(1.04);
   box-shadow: 0 6px 18px rgba(0,0,0,0.18);
 }
-}
 
+/* Balloon area */
 #balloon-area {
   position: relative;
   height: 350px;
-  background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  background: linear-gradient(120deg, #2575fc 0%, #6a11cb 100%);
   border-radius: 18px;
-  margin: 1.2rem 0 1.2rem 0;
+  margin: 1.2rem 0;
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(0,0,0,0.12);
-  border: 2px solid #fda085;
+  border: 2px solid #2575fc;
   display: flex;
   align-items: center;
   justify-content: center;
 }
-  margin-bottom: 1.2rem;
-  padding: 0.7rem 1.5rem;
-  font-size: 1.1rem;
-  background: linear-gradient(90deg, #fda085 0%, #f6d365 100%);
-  color: #fff;
-  border: none;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.13);
-  cursor: pointer;
-  font-weight: 600;
-  transition: background 0.2s, transform 0.2s;
-}
-#start-game:hover {
-  background: linear-gradient(90deg, #f6d365 0%, #fda085 100%);
-  transform: scale(1.05);
-}
 
+/* Balloon */
 .balloon {
   position: absolute;
   bottom: -50px;
   width: 50px;
   height: 70px;
-  background: red;
+  background: #ff4d6d;
   border-radius: 25px 25px 45px 45px;
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0,0,0,0.18);
@@ -139,11 +109,36 @@ section {
   transform: scale(1.1);
   filter: brightness(1.2);
 }
+
+/* Start game button */
+#start-game {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.8rem 2rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  background: linear-gradient(90deg, #2575fc 0%, #6a11cb 100%);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+#start-game:hover {
+  background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
+  transform: scale(1.08);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+}
+
+/* Next button */
+.next-btn {
   display: inline-block;
   margin-top: 1.5rem;
   padding: 0.8rem 2rem;
   font-size: 1.1rem;
-  background: linear-gradient(90deg, #fda085 0%, #f6d365 100%);
+  background: linear-gradient(90deg, #2575fc 0%, #6a11cb 100%);
   color: #fff;
   border: none;
   border-radius: 8px;
@@ -152,22 +147,13 @@ section {
   font-weight: 600;
   transition: background 0.2s, transform 0.2s;
 }
- .next-btn:hover {
-  background: linear-gradient(90deg, #f6d365 0%, #fda085 100%);
+
+.next-btn:hover {
+  background: linear-gradient(90deg, #6a11cb 0%, #2575fc 100%);
   transform: scale(1.05);
 }
-  margin-bottom: 1rem;
-}
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #fda085;
-  margin-bottom: 1rem;
-}
-  font-size: 1.1rem;
-  color: #222;
-  margin-bottom: 1rem;
-}
 
+/* Buttons */
 .buttons {
   margin-top: 1rem;
 }
@@ -182,6 +168,8 @@ section {
 
 .accept { background: green; }
 .decline { background: red; }
+
+/* Intro overlay */
 #intro-overlay {
   position: fixed;
   top: 0; left: 0;
@@ -195,7 +183,7 @@ section {
   text-align: center;
   z-index: 9999;
   animation: fadeOut 1s ease forwards;
-  animation-delay: 5s; /* stays for 5s */
+  animation-delay: 5s;
 }
 
 #intro-overlay h1 {
@@ -203,16 +191,18 @@ section {
   margin-bottom: 1rem;
 }
 
+/* Animations */
 @keyframes fadeOut {
+  to { opacity: 0; visibility: hidden; }
+}
+
 @keyframes fadeInUp {
   0% {
     opacity: 0;
-    transform: translate(-50%, 40px) scale(0.95);
+    transform: translateY(40px) scale(0.95);
   }
   100% {
     opacity: 1;
-    transform: translate(-50%, 0) scale(0.95);
+    transform: translateY(0) scale(1);
   }
-}
-  to { opacity: 0; visibility: hidden; }
 }
