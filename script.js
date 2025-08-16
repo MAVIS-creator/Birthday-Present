@@ -129,35 +129,58 @@ function celebrateAndReveal() {
     document.getElementById("gift-reveal").classList.remove("hidden");
   }, 1200);
 }
-document.addEventListener("DOMContentLoaded", () => {
-  const sections = Array.from(document.querySelectorAll(".section"));
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  // ===== Page sections nav (one per page) =====
+  const sections = Array.from(document.querySelectorAll('.section'));
   let current = 0;
 
   function showSection(idx) {
     sections.forEach((sec, i) => {
       sec.style.display = (i === idx) ? 'block' : 'none';
     });
+    current = idx;
   }
 
-  showSection(current);
+  // Initial: show the first section only
+  showSection(0);
 
-  document.querySelectorAll(".next-btn").forEach((btn, i) => {
-    btn.addEventListener("click", () => {
-      showSection(i + 1);
+  // Next buttons navigate relative to the section they are in
+  document.querySelectorAll('.next-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const parent = btn.closest('.section');
+      const idx = sections.indexOf(parent);
+      if (idx > -1 && idx + 1 < sections.length) showSection(idx + 1);
     });
   });
 
-  // Envelope click-to-open
-  const envelope = document.querySelector(".envelope");
-  const nextBtn = document.querySelector("#letter .next-btn");
-  const indicator = document.querySelector(".indicator");
+  // ===== Envelope behavior =====
+  const envelope = document.getElementById('envelope');
+  const letterNext = document.getElementById('letter-next');
+  const indicator = document.querySelector('#letter .indicator');
 
-  envelope.addEventListener("click", () => {
-    envelope.classList.add("open");
-    indicator.style.display = "none";
-    setTimeout(() => {
-      nextBtn.style.display = "inline-block";
-    }, 1200); // show next button after letter is fully revealed
+  // Click to open
+  envelope.addEventListener('click', () => {
+    if (!envelope.classList.contains('open')) {
+      envelope.classList.add('open');
+      if (indicator) indicator.style.display = 'none';
+      // Show Next after paper finishes sliding
+      setTimeout(() => { letterNext.style.display = 'inline-block'; }, 1000);
+    }
+  });
+
+  // ===== Game gate (unchanged, but safer) =====
+  // If you gate the "game" section, keep this pattern:
+  document.querySelectorAll('.next-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const parent = btn.closest('.section');
+      if (parent && parent.id === 'game') {
+        if (window.poppedCount < 10) {
+          alert('Pop at least 10 balloons to continue!');
+        }
+      }
+    });
   });
 });
+</script>
 
