@@ -24,11 +24,9 @@ function startGame() {
   const balloonArea = document.getElementById("balloon-area");
   balloonArea.innerHTML = "";
 
-  let balloonsCreated = 0;
   balloonInterval = setInterval(() => {
-    if (balloonsCreated < balloonsToPop) {
+    if (poppedCount < balloonsToPop) {
       createBalloon(balloonArea);
-      balloonsCreated++;
     }
   }, 700);
 
