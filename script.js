@@ -129,7 +129,6 @@ function celebrateAndReveal() {
     document.getElementById("gift-reveal").classList.remove("hidden");
   }, 1200);
 }
-<script>
 document.addEventListener('DOMContentLoaded', () => {
   // ===== Page sections nav (one per page) =====
   const sections = Array.from(document.querySelectorAll('.section'));
@@ -182,5 +181,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 });
-</script>
 
