@@ -333,8 +333,6 @@ section:hover {
   z-index: 1; 
 }
 
-
-
 /* Animation when "open" */
 .envelope.open .flap {
   transform: rotateX(180deg);
