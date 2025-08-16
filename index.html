@@ -11,7 +11,8 @@
     <title>Happy Birthday Bro 🎉</title>
     <link rel="stylesheet" href="style.css">
 </head>
-   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
 <body>
     <!-- Celebration Intro -->
     <div id="intro-overlay">
@@ -26,13 +27,65 @@
         <button class="next-btn">Next</button>
     </header>
 
-<!-- Envelope + Letter Section -->
-<section id="letter" style="display:none; text-align:center; background:none; box-shadow:none; padding:0;">
-  <h2 style="margin-bottom:20px;">A Letter From Me 📝</h2>
-  <div class="envelope"> 
-    
-  </div>
-</section>
+    <!-- Envelope + Letter Section -->
+    <section id="letter" style="display:none; text-align:center; background:none; box-shadow:none; padding:0;">
+        <h2 style="margin-bottom:20px;">A Letter From Me 📝</h2>
+        <div class="envelope">
+            <div class="flap"></div>
+            <div class="paper">
+                <p>
+                    Dear Akintunde Olumide Opeyemi,
+                    <br><br>
+                    Today, as I sit down to write this, my heart is full of gratitude and happiness because it’s not
+                    just your birthday—it’s a celebration of everything that makes you such a special person in my life.
+                    Birthdays are usually about cake, candles, and gifts, but for me, this one is also about words—words
+                    that I often don’t say enough, but words I mean deeply: thank you for being my brother, my friend,
+                    my constant companion, and my safe place.
+                    <br><br>
+                    One of life’s greatest blessings is truly having you as my brother. You’ve been more than just
+                    family; you’ve been a best friend, a gaming rival, and someone who constantly finds ways to make me
+                    laugh, even on the hardest days. I often think back on all the moments we’ve shared, and I realize
+                    that the little things—the jokes, the endless debates, the random late-night talks, the way we push
+                    each other to be better—are what I treasure the most. Those moments are what make our bond so unique
+                    and unshakable.
+                    <br><br>
+                    You’ve always had this special way of showing strength and kindness at the same time. You inspire me
+                    with your determination, your patience, and the way you never give up no matter what challenges come
+                    your way. Honestly, you’ve taught me more lessons in life than I could ever learn from books or
+                    classrooms. You’ve taught me loyalty, the importance of being there for family, and how love is not
+                    only about saying the words, but about showing up, time and time again.
+                    <br><br>
+                    On this birthday, I want you to know how deeply loved you are—not only by me, but by everyone around
+                    you. You carry this light with you, and wherever you go, people feel it. You have this gift of
+                    making others feel seen, valued, and appreciated, and that’s something rare in this world. That’s
+                    why I admire you, not just as a brother, but as a human being who truly makes an impact on others’
+                    lives.
+                    <br><br>
+                    I hope this new chapter of your life brings you closer to all the dreams you’ve been chasing. I hope
+                    you never lose that spark that makes you, you. And I pray for happiness, health, success, and
+                    endless reasons to smile—not just today, but for every day that follows. You deserve nothing less
+                    than the very best because you’ve given so much love and kindness without ever asking for much in
+                    return.
+                    <br><br>
+                    Thank you for being the person I can always count on. Thank you for the fun, the arguments, the
+                    support, the laughter, and the memories. Thank you for being not only my brother but also my forever
+                    friend. If I had to choose someone to stand by me through the ups and downs of life, I’d choose you
+                    again and again without a second thought.
+                    <br><br>
+                    So today, let’s celebrate you—your life, your journey, and the many beautiful years ahead. May this
+                    birthday be full of surprises, joy, and everything that makes your heart feel alive. Happy birthday,
+                    Akintunde Olumide Opeyemi. I’m proud to call you my brother, and I love you more than words can ever
+                    fully express.
+                    <br><br>
+                    With love,
+                    Always. ❤️
+                </p>
+            </div>
+        </div>
+
+        <button class="next-btn">Next</button>
+        </div>
+    </section>
 
     <!-- Memory Wall -->
     <section id="memories" class="section" style="display:none;">
@@ -78,34 +131,34 @@
     </section>
 
 </body>
-    <script src="script.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-    <script src="/assets/confetti.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const sections = Array.from(document.querySelectorAll('.section'));
-            let current = 0;
-            function showSection(idx) {
-                sections.forEach((sec, i) => {
-                    sec.style.display = (i === idx) ? '' : 'none';
-                });
-            }
-            showSection(current);
-            document.querySelectorAll('.next-btn').forEach((btn, i) => {
-                btn.addEventListener('click', function () {
-                    if (sections[i].id === 'game') {
-                        if (window.poppedCount < 5) {
-                            alert('Pop at least 5 balloons to continue!');
-                            return;
-                        }
-                    }
-                    showSection(i + 1);
-                });
+<script src="script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+<script src="/assets/confetti.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const sections = Array.from(document.querySelectorAll('.section'));
+        let current = 0;
+        function showSection(idx) {
+            sections.forEach((sec, i) => {
+                sec.style.display = (i === idx) ? '' : 'none';
             });
-            window.showGameNextBtn = function () {
-                const gameSection = document.getElementById('game');
-                const nextBtn = gameSection.querySelector('.next-btn');
-                nextBtn.style.display = '';
-            }
+        }
+        showSection(current);
+        document.querySelectorAll('.next-btn').forEach((btn, i) => {
+            btn.addEventListener('click', function () {
+                if (sections[i].id === 'game') {
+                    if (window.poppedCount < 5) {
+                        alert('Pop at least 5 balloons to continue!');
+                        return;
+                    }
+                }
+                showSection(i + 1);
+            });
         });
-    </script>
+        window.showGameNextBtn = function () {
+            const gameSection = document.getElementById('game');
+            const nextBtn = gameSection.querySelector('.next-btn');
+            nextBtn.style.display = '';
+        }
+    });
+</script>
