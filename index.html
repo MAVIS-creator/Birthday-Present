@@ -89,7 +89,6 @@
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
     <script src="/assets/confetti.js"></script>
     <script>
-        // Section navigation logic
         document.addEventListener('DOMContentLoaded', function () {
             const sections = Array.from(document.querySelectorAll('.section'));
             let current = 0;
@@ -102,17 +101,14 @@
             document.querySelectorAll('.next-btn').forEach((btn, i) => {
                 btn.addEventListener('click', function () {
                     if (sections[i].id === 'game') {
-                        // Only allow next if 5 balloons popped
                         if (window.poppedCount < 5) {
                             alert('Pop at least 5 balloons to continue!');
                             return;
                         }
-                        // Show next button after popping 5 balloons
                     }
                     showSection(i + 1);
                 });
             });
-            // Show game next button after 5 balloons
             window.showGameNextBtn = function () {
                 const gameSection = document.getElementById('game');
                 const nextBtn = gameSection.querySelector('.next-btn');
