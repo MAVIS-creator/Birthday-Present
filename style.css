@@ -290,16 +290,16 @@ section:hover {
 }
 .envelope {
   position: relative;
-  width: 280px;
-  height: 180px;
+  width: 320px;
+  height: 200px;
   margin: 30px auto;
   background: #f2d16b;
-  border: 2px solid #c9a941;
-  border-radius: 8px;
+  border-radius: 6px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
   overflow: hidden;
 }
 
-.flap {
+.envelope .flap {
   position: absolute;
   top: 0;
   left: 0;
@@ -308,30 +308,33 @@ section:hover {
   background: #e5bb55;
   clip-path: polygon(0 0, 100% 0, 50% 100%);
   transform-origin: top;
-  transition: transform 1s ease;
+  transition: transform 0.8s ease;
+  z-index: 2;
 }
 
+.envelope .paper {
+  position: absolute;
+  bottom: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 85%;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  max-height: 250px;
+  overflow-y: auto;
+  transition: bottom 0.8s ease 0.6s;
+  text-align: left;
+  font-family: "Georgia", serif;
+  line-height: 1.5;
+}
+
+/* Animation when "open" */
 .envelope.open .flap {
   transform: rotateX(180deg);
 }
 
-.paper {
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 240px;
-  background: #fff;
-  transform: translateX(-50%) translateY(100%);
-  padding: 20px;
-  font-size: 14px;
-  line-height: 1.5;
-  border-radius: 4px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  transition: transform 1s ease 1s;
-  max-height: 280px;
-  overflow-y: auto;
-}
-
 .envelope.open .paper {
-  transform: translateX(-50%) translateY(0);
+  bottom: 5%;
 }
