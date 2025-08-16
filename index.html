@@ -26,18 +26,85 @@
         <button class="next-btn">Next</button>
     </header>
 
-    <!-- Letter Section -->
-    <section id="letter" class="section" style="display:none;">
-        <h2>A Letter From Me 📝</h2>
-        <p>
-            One of life's greatest blessings is having you as a brother, Akintunde Olumide Opeyemi. You are my best
-            buddy, my gaming opponent, and the person who constantly cheers me up. You are more than simply family. I
-            cherish every time we spend together, every laugh, and every trip. I hope your birthday is full of
-            happiness, love, and everything that brings you delight. Today and every day, you deserve the finest. ❤️
-            Happy birthday, my friend!
-        </p>
-        <button class="next-btn">Next</button>
-    </section>
+<!-- Envelope + Letter Section -->
+<section id="letter" class="section" style="display:none; text-align:center;">
+  <h2>A Letter From Me 📝</h2>
+
+  <div class="envelope">
+    <div class="flap"></div>
+    <div class="paper">
+      <p>
+        My dearest brother, Akintunde Olumide Opeyemi,  
+        Having you as my brother is one of life’s greatest blessings.  
+        You’re my best buddy, my gaming rival, my everyday hype-man, and my forever teammate in this journey of life.  
+
+        I’ll never forget the laughs we’ve shared, the struggles we’ve conquered, and the countless adventures that became stories we’ll always tell. You’re not just family — you’re my best friend, my role model, and my anchor.  
+
+        On your birthday, I pray you’re showered with joy, success, peace, and all the things your heart desires. You deserve nothing less than greatness.  
+
+        Here’s to more late-night games, more victories, more trips, and more unforgettable memories. ❤️  
+        Happy Birthday, champ. Keep shining. 🎉
+      </p>
+    </div>
+  </div>
+
+  <button class="next-btn">Next</button>
+</section>
+
+<style>
+.envelope {
+  position: relative;
+  width: 280px;
+  height: 180px;
+  margin: 30px auto;
+  background: #f2d16b;
+  border: 2px solid #c9a941;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.flap {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  background: #e5bb55;
+  clip-path: polygon(0 0, 100% 0, 50% 100%);
+  transform-origin: top;
+  transition: transform 1s ease;
+}
+
+.envelope.open .flap {
+  transform: rotateX(180deg);
+}
+
+.paper {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 240px;
+  background: #fff;
+  transform: translateX(-50%) translateY(100%);
+  padding: 20px;
+  font-size: 14px;
+  line-height: 1.5;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 1s ease 1s;
+  max-height: 280px;
+  overflow-y: auto;
+}
+
+.envelope.open .paper {
+  transform: translateX(-50%) translateY(0);
+}
+</style>
+
+<script>
+
+</script>
+
 
     <!-- Memory Wall -->
     <section id="memories" class="section" style="display:none;">

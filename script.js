@@ -129,3 +129,10 @@ function celebrateAndReveal() {
     document.getElementById("gift-reveal").classList.remove("hidden");
   }, 1200);
 }
+document.addEventListener("DOMContentLoaded", () => {
+  const envelope = document.querySelector(".envelope");
+  // Open the envelope after 1s delay
+  setTimeout(() => {
+    envelope.classList.add("open");
+  }, 1000);
+});
