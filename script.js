@@ -129,3 +129,36 @@ function celebrateAndReveal() {
     document.getElementById("gift-reveal").classList.remove("hidden");
   }, 1200);
 }
+// Typing effect for the letter
+const letterText = `Dear Akintunde Olumide Opeyemi,
+
+My heart is bursting with joy and thankfulness as I sit down to write this today... 
+
+[👉 your full letter text goes here 👈]
+
+With love,
+Always.`;
+
+let i = 0;
+const speed = 35; // typing speed in ms
+const typedLetter = document.getElementById("typed-letter");
+
+function typeWriter() {
+  if (i < letterText.length) {
+    typedLetter.innerHTML = letterText.substring(0, i+1) + '<span class="typing-cursor"></span>';
+    i++;
+    setTimeout(typeWriter, speed);
+  } else {
+    typedLetter.innerHTML = letterText; // remove cursor at end
+  }
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const observer = new IntersectionObserver(entries => {
+    if (entries[0].isIntersecting) {
+      typeWriter();
+      observer.disconnect();
+    }
+  }, { threshold: 0.5 });
+  observer.observe(document.getElementById("letter"));
+});
